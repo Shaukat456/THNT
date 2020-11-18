@@ -28,12 +28,12 @@ const App = () => {
         <>  
         <Menu/>
         <Switch>
-        <Route  exact path='/' component={About} />
+            {/* if we wanna use props thn render otherwise component */}
+        <Route  exact path='/' component={()=> <About name='shoukat'/> }/> 
         <Route exact path='/contact' component={Contact} />
-        <Route exact path='/services' component={Services}/>
-        <Route exact path='/Me' component={Me}/>
-        <Route exact path='/Works' component={Works}/>
-
+        <Route exact path='/services' component={()=><Services name='Services'/>}/>
+        <Route exact path='/Me' render={()=> <Me name='Its me page' pict='wood.jpg' />}/>
+        <Route exact path='/Works/:my' component={Works}/>
         <Route component={E}></Route>
         </Switch>
 </>
